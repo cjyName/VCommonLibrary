@@ -8,9 +8,9 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-struct ImagePicker: UIViewControllerRepresentable {
-    typealias UIViewControllerType = UIImagePickerController
-    typealias Coordinator = ImagePickerCoordinator
+public struct ImagePicker: UIViewControllerRepresentable {
+    public typealias UIViewControllerType = UIImagePickerController
+    public typealias Coordinator = ImagePickerCoordinator
     
     //coordinator
     @Binding var image: UIImage
@@ -18,7 +18,7 @@ struct ImagePicker: UIViewControllerRepresentable {
     
     var sourceType: UIImagePickerController.SourceType = .camera
     
-    func makeUIViewController(context: Context) -> UIImagePickerController {
+    public func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
         
         picker.sourceType = sourceType
@@ -27,17 +27,17 @@ struct ImagePicker: UIViewControllerRepresentable {
         return picker
     }
     
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
+    public func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
         //do nothing
     }
     
-    func makeCoordinator() -> ImagePicker.Coordinator {
+    public func makeCoordinator() -> ImagePicker.Coordinator {
         return ImagePickerCoordinator(image: $image, isActive: $isActive)
     }
 }
 
 @available(iOS 15.0, *)
-class ImagePickerCoordinator: NSObject, UIImagePickerControllerDelegate {
+public class ImagePickerCoordinator: NSObject, UIImagePickerControllerDelegate {
     
     @Binding var image: UIImage
     @Binding var isActive: Bool
@@ -47,14 +47,14 @@ class ImagePickerCoordinator: NSObject, UIImagePickerControllerDelegate {
         _isActive = isActive
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             image = uiImage
             isActive = false
         }
     }
     
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         isActive = false
     }
 }
