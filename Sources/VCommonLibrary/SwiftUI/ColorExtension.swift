@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-extension Color {
+public extension Color {
     
     init(_ red: CGFloat, _ green: CGFloat, _ blue: CGFloat, _ alpha: CGFloat) {
         

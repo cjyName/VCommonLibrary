@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 16.0.0, *)
-extension Image {
+public extension Image {
     
     @MainActor var cgImage: CGImage? {
         

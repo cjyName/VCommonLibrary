@@ -8,7 +8,7 @@
 import SwiftUI
 import AVFoundation
 
-extension AVPlayer {
+public extension AVPlayer {
     
     @available(iOS 16.0.0, *)
     var totalPlayTime: Double? {
@@ -25,7 +25,7 @@ extension AVPlayer {
     }
 }
 
-extension CVPixelBuffer {
+public extension CVPixelBuffer {
     
     var cgImage: CGImage? {
         
@@ -40,7 +40,7 @@ extension CVPixelBuffer {
     }
 }
 
-extension CMSampleBuffer {
+public extension CMSampleBuffer {
     
     var cgImage: CGImage? {
         
