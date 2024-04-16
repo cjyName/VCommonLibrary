@@ -9,7 +9,7 @@ import UIKit
 
 extension UIImage {
     
-    func resizeImage(maxSize: CGFloat) throws {
+    public func resizeImage(maxSize: CGFloat) throws {
         
         var actualHeight = self.size.height
         var actualWidth = self.size.width
